@@ -3,8 +3,7 @@
 include 'db.php';
 
 $sql= "SELECT * FROM  names ";
-$data = mysqli_query($conn,$sql);
-while($query = msqli_fetch_array ($data) )
+$result = mysqli_query($conn, "SELECT * FORM users");
  ?>
 <!DOCTYPE html>
 <html>
@@ -53,6 +52,6 @@ if (mysqli_num_rows($result)>0){
     echo "no result found";
 
 }
- 
+ ?>
 </body>
 </html>
