@@ -1,9 +1,7 @@
 
 <?php
-include 'db.php';
-
-$sql= "SELECT * FROM  names ";
-$result = mysqli_query($conn, "SELECT * FORM users");
+include_once 'db.php';
+$result = mysqli_query($conn, "SELECT * FROM users");
  ?>
 <!DOCTYPE html>
 <html>
@@ -16,30 +14,23 @@ $result = mysqli_query($conn, "SELECT * FORM users");
 <body>
 <?php 
 if (mysqli_num_rows($result)>0){
-
 ?>
 <table>
     <tr>
-        <td>si no</td>
+        <td>id</td>
         <td>nom</td>
         <td>prenom</td>
-        <td>city</td>
-        <td>email</td>
-        <td>discription</td>
+        
     </tr>
     <?php
     $i=0;
     while($row = mysqli_fetch_array($result)){
         ?>
 <tr>
-
- <td><?php echo $row ["si no"]; ?></td>
- <td><?php echo $row["nom"]; ?></td>
+<td><?php echo $row["nom"]; ?></td>
  <td><?php echo $row ["prenom"]; ?></td>
- <td><?php echo $row["city"]; ?></td><td>
-<?php echo $row ["email"]; ?></td>
- <td><?php echo $row["discrption"]; ?></td>
- <td><a href="update-process.php?id=<?php echo $row["id"]; ?>">update </a></td>
+
+ <td><a href="update.php?id=<?php echo $row["id"]; ?>">update </a></td>
  </tr>
  <?php
  $i++;
@@ -50,7 +41,6 @@ if (mysqli_num_rows($result)>0){
  }
  else {
     echo "no result found";
-
 }
  ?>
 </body>
