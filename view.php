@@ -9,6 +9,7 @@ $result = mysqli_query($conn, "SELECT * FROM users");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
@@ -24,7 +25,7 @@ if (mysqli_num_rows($result)>0){
     </tr>
     <?php
     $i=0;
-    while($row = mysqli_fetch_array($result)){
+    while($row = mysqli_fetch_array($result)) {
         ?>
 <tr>
 <td><?php echo $row["nom"]; ?></td>
@@ -32,9 +33,11 @@ if (mysqli_num_rows($result)>0){
 
  <td><a href="update.php?id=<?php echo $row["id"]; ?>">update </a></td>
  </tr>
- <?php
- $i++;
- }
+
+     <?php
+
+     $i++;
+     }
  ?>
  </table>
  <?php
